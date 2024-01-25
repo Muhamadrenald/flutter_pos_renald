@@ -4,7 +4,7 @@ import 'package:flutter_pos_renald/core/extensions/build_context_ext.dart';
 import 'package:flutter_pos_renald/core/extensions/int_ext.dart';
 import 'package:flutter_pos_renald/core/extensions/string_ext.dart';
 import 'package:flutter_pos_renald/data/datasources/product_local_datasource.dart';
-import 'package:flutter_pos_renald/presentation/order/bloc/bloc/order_bloc.dart';
+import 'package:flutter_pos_renald/presentation/order/bloc/order/order_bloc.dart';
 import 'package:flutter_pos_renald/presentation/order/models/order_model.dart';
 import 'package:flutter_pos_renald/presentation/order/widgets/payment_success_dialog.dart';
 

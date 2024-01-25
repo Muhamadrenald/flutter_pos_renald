@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pos_renald/presentation/home/bloc/chechout/checkout_bloc.dart';
 import 'package:flutter_pos_renald/presentation/home/models/order_item.dart';
-import 'package:flutter_pos_renald/presentation/order/bloc/bloc/order_bloc.dart';
+import 'package:flutter_pos_renald/presentation/order/bloc/order/order_bloc.dart';
+import 'package:flutter_pos_renald/presentation/order/widgets/payment_qris_dialog.dart';
 
 import '../../../core/assets/assets.gen.dart';
 import '../../../core/components/menu_button.dart';
@@ -159,13 +160,13 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   );
                 } else if (indexValue.value == 2) {
-                  // showDialog(
-                  //   context: context,
-                  //   barrierDismissible: false,
-                  //   builder: (context) => PaymentQrisDialog(
-                  //     price: totalPrice,
-                  //   ),
-                  // );
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (context) => PaymentQrisDialog(
+                      price: totalPrice,
+                    ),
+                  );
                 }
               },
             ),

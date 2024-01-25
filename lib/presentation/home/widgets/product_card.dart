@@ -30,9 +30,9 @@ class ProductCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(19),
           ),
         ),
-        // child: Column(
-        child: ListView(
-          // crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          // child: ListView(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               alignment: Alignment.center,

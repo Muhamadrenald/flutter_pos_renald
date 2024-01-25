@@ -5,7 +5,7 @@ import 'package:flutter_pos_renald/core/extensions/date_time_ext.dart';
 import 'package:flutter_pos_renald/core/extensions/int_ext.dart';
 import 'package:flutter_pos_renald/presentation/home/bloc/chechout/checkout_bloc.dart';
 import 'package:flutter_pos_renald/presentation/home/pages/dashboard_page.dart';
-import 'package:flutter_pos_renald/presentation/order/bloc/bloc/order_bloc.dart';
+import 'package:flutter_pos_renald/presentation/order/bloc/order/order_bloc.dart';
 import 'package:print_bluetooth_thermal/print_bluetooth_thermal.dart';
 
 import '../../../core/assets/assets.gen.dart';

@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_pos_renald/data/datasources/auth_remote_datasource.dart';
-import 'package:flutter_pos_renald/data/models/response/auth_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'package:flutter_pos_renald/data/datasources/auth_remote_datasource.dart';
+
+import '../../../../data/models/response/auth_response_model.dart';
+
+part 'login_bloc.freezed.dart';
 part 'login_event.dart';
 part 'login_state.dart';
-part 'login_bloc.freezed.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRemoteDatasource authRemoteDatasource;
