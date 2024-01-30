@@ -65,7 +65,9 @@ class _OrderPageState extends State<OrderPage> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<CheckoutBloc>().add(const CheckoutEvent.started());
+            },
             icon: Assets.icons.delete.svg(),
           ),
         ],
@@ -92,6 +94,14 @@ class _OrderPageState extends State<OrderPage> {
                 padding: paddingHorizontal,
                 data: data[index],
                 onDeleteTap: () {
+                  // untuk hapus all product order item
+                  context
+                      .read<CheckoutBloc>()
+                      .add(const CheckoutEvent.started());
+                  // untuk hapus per product item
+                  // context
+                  //     .read<CheckoutBloc>()
+                  //     .add(CheckoutEvent.removeProduct(data[index].product));
                   // indexValue = 0;
                   // orders.removeAt(index);
                   // setState(() {});

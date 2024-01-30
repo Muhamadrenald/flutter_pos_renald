@@ -36,10 +36,9 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(80.0),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 130.0),
-              child: Image.asset(
-                Assets.images.logo.path,
+              child: Assets.icons.login.svg(
                 width: 100,
-                height: 100,
+                height: 200,
               )),
           const SpaceHeight(24.0),
           const Center(

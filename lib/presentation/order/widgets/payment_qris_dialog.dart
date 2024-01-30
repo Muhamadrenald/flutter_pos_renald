@@ -6,6 +6,7 @@ import 'package:flutter_pos_renald/core/extensions/build_context_ext.dart';
 import 'package:flutter_pos_renald/presentation/order/bloc/order/order_bloc.dart';
 import 'package:flutter_pos_renald/presentation/order/bloc/qris/qris_bloc.dart';
 import 'package:flutter_pos_renald/presentation/order/widgets/payment_success_dialog.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
@@ -100,6 +101,9 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                                 totalPrice: total,
                                 idKasir: idKasir,
                                 namaKasir: namaKasir,
+                                transactionTime:
+                                    DateFormat('yyyy-MM-ddTHH:mm:ss')
+                                        .format(DateTime.now()),
                                 isSync: false);
                             ProductLocalDatasource.instance
                                 .saveOrder(orderModel);

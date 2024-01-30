@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_pos_renald/core/extensions/build_context_ext.dart';
 import 'package:flutter_pos_renald/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_pos_renald/presentation/auth/pages/login_page.dart';
+import 'package:flutter_pos_renald/presentation/history/pages/history_page.dart';
 import 'package:flutter_pos_renald/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:flutter_pos_renald/presentation/home/pages/home_page.dart';
 import 'package:flutter_pos_renald/presentation/order/pages/order_page.dart';
@@ -25,9 +26,7 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<Widget> _pages = [
     const HomePage(),
     const OrderPage(),
-    const Center(
-      child: Text("History"),
-    ),
+    const HistoryPage(),
     const SettingPage(),
     // const HomePage(),
     // const OrdersPage(),

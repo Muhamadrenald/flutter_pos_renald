@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   SvgGenImage get allCategories =>
       const SvgGenImage('assets/icons/all_categories.svg');
 
+  /// File path: assets/icons/login.svg
+  SvgGenImage get login => const SvgGenImage('assets/icons/login.svg');
+
   /// File path: assets/icons/cash.svg
   SvgGenImage get cash => const SvgGenImage('assets/icons/cash.svg');
 
@@ -66,6 +69,7 @@ class $AssetsIconsGen {
   /// List of all assets
   List<SvgGenImage> get values => [
         allCategories,
+        login,
         cash,
         dashboard,
         debit,
@@ -114,6 +118,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/login.png
+  AssetGenImage get login => const AssetGenImage('assets/images/login.png');
+
   /// File path: assets/images/manage_printer.png
   AssetGenImage get managePrinter =>
       const AssetGenImage('assets/images/manage_printer.png');
@@ -137,6 +144,7 @@ class $AssetsImagesGen {
         f7,
         f8,
         logo,
+        login,
         managePrinter,
         managePrinterx,
         manageProduct

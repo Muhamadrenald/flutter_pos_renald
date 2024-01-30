@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter_pos_renald/data/datasources/auth_local_datasource.dart';
 import 'package:flutter_pos_renald/data/models/response/qris_response_model.dart';
 import 'package:flutter_pos_renald/data/models/response/qris_status_response_model.dart';
 import 'package:http/http.dart' as http;
@@ -14,13 +15,16 @@ class MidtransRemoteDatasource {
 
   Future<QrisResponseModel> generateQRCode(
       String orderId, int grossAmount) async {
+    final serverKey = await AuthLocalDatasource().getMitransServerKey();
     final headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       // 'Authorization': generateBasicAuthHeader('Mid-server-Yourkey'),
       'Authorization':
-          generateBasicAuthHeader('Mid-server-LFzXhN0zswa2UxiTBVBGXtAz'),
-      // generateBasicAuthHeader('SB-Mid-server-GUJOPIhHF9b1D1ffzjmtPHnf'),
+          // generateBasicAuthHeader('Mid-server-LFzXhN0zswa2UxiTBVBGXtAz'), //versi production
+          // generateBasicAuthHeader(
+          //     'SB-Mid-server-GUJOPIhHF9b1D1ffzjmtPHnf'), //versi sandbox
+          generateBasicAuthHeader(serverKey), //versi sandbox
     };
 
     final body = jsonEncode({
@@ -32,7 +36,8 @@ class MidtransRemoteDatasource {
     });
 
     final response = await http.post(
-      Uri.parse('https://api.midtrans.com/v2/charge'),
+      Uri.parse('https://api.midtrans.com/v2/charge'), //versi production
+      // Uri.parse('https://api.sandbox.midtrans.com/v2/charge'), //versi sandbox
       headers: headers,
       body: body,
     );
@@ -45,16 +50,23 @@ class MidtransRemoteDatasource {
   }
 
   Future<QrisStatusResponseModel> checkPaymentStatus(String orderId) async {
+    final serverKey = await AuthLocalDatasource().getMitransServerKey();
     final headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      // 'Authorization': generateBasicAuthHeader('Mid-server-Yourkey'),
       'Authorization':
-          generateBasicAuthHeader('Mid-server-LFzXhN0zswa2UxiTBVBGXtAz'),
-      // generateBasicAuthHeader('SB-Mid-server-GUJOPIhHF9b1D1ffzjmtPHnf'),
+          // generateBasicAuthHeader('Mid-server-LFzXhN0zswa2UxiTBVBGXtAz'), //versi production
+          // generateBasicAuthHeader(
+          //     'SB-Mid-server-GUJOPIhHF9b1D1ffzjmtPHnf'), //versi sandbox
+          generateBasicAuthHeader(serverKey),
     };
 
     final response = await http.get(
-      Uri.parse('https://api.midtrans.com/v2/$orderId/status'),
+      Uri.parse(
+          'https://api.midtrans.com/v2/$orderId/status'), //versi production
+      // Uri.parse(
+      //     'https://api.sandbox.midtrans.com/v2/$orderId/status'), //versi sandbox
       headers: headers,
     );
 
